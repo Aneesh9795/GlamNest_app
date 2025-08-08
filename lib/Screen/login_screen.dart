@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:glamnest_app/Screen/otp_screen.dart';
 import 'package:provider/provider.dart';
 import '../provider/login_provider.dart';
 
@@ -24,7 +25,7 @@ class LoginScreen extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
-                    color: Colors.blue,
+                    color: Color(0xFF003133),
                   ),
                 ),
                 const SizedBox(height: 40),
@@ -41,7 +42,7 @@ class LoginScreen extends StatelessWidget {
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: loginProvider.isPhoneSelected
-                              ? Colors.blue
+                              ? Color(0xFF003133)
                               : Colors.white,
                           foregroundColor: loginProvider.isPhoneSelected
                               ? Colors.white
@@ -63,7 +64,7 @@ class LoginScreen extends StatelessWidget {
                         style: ElevatedButton.styleFrom(
                           backgroundColor: loginProvider.isPhoneSelected
                               ? Colors.white
-                              : Colors.blue,
+                              : Color(0xFF003133),
                           foregroundColor: loginProvider.isPhoneSelected
                               ? Colors.black
                               : Colors.white,
@@ -105,24 +106,28 @@ class LoginScreen extends StatelessWidget {
                 ),
 
                 const SizedBox(height: 25),
-
                 /// Send OTP Button
                 SizedBox(
                   width: textFieldWidth,
                   height: 50,
                   child: ElevatedButton(
-                    onPressed: () {
-                      loginProvider.sendOtp();
+                    onPressed: () async {
+                      await loginProvider.sendOtp();
+                      Navigator.push(
+                          context,
+                        MaterialPageRoute(builder: (context) => OtpScreen()),
+                      );
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue,
+
+                      backgroundColor: Color(0xFF003133),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(16),
                       ),
                     ),
                     child: const Text(
                       "Send OTP",
-                      style: TextStyle(fontSize: 16),
+                      style: TextStyle(fontSize: 16,color: Colors.white),
                     ),
                   ),
                 ),

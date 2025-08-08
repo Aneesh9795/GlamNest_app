@@ -20,11 +20,12 @@ class LoginProvider with ChangeNotifier {
     notifyListeners();
   }
 
-  void sendOtp() {
+  Future<void> sendOtp() async {
     if (selectedMode == 'phone') {
       print('Sending OTP to phone: ${phoneController.text}');
     } else {
       print('Sending OTP to email: ${emailController.text}');
     }
+    await Future.delayed(Duration(seconds: 1));
   }
 }
