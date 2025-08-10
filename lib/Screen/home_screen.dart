@@ -7,8 +7,8 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFF003133),
-        iconTheme: IconThemeData(color: Colors.white),
+        backgroundColor: const Color(0xFF003133),
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: Column(
         children: [
@@ -20,6 +20,7 @@ class HomeScreen extends StatelessWidget {
               color: const Color(0xFF003133),
               child: Stack(
                 children: [
+                  // Rectangle with circle & text
                   Positioned(
                     top: 20,
                     left: 16,
@@ -30,70 +31,75 @@ class HomeScreen extends StatelessWidget {
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(23),
                       ),
-                      child: Row (
-                        mainAxisAlignment: MainAxisAlignment.start,
+                      child: Stack(
                         children: [
-                          const SizedBox(width: 4),
-                          Container(
-                            width: 32,
-                            height: 32,
-                            decoration: const BoxDecoration(
-                              color: Color(0xFF003133),
-                              shape: BoxShape.circle,
-                            ),
-                            child: const Center(
-                              child: Text('1',style:
-                              TextStyle(color: Colors.white,
-                              fontWeight: FontWeight.bold,
-                              ),
-                              ),
-                            ),
-                          ),
-
-                          const Positioned(
-                              top:69 -48,
-                              left: 28,
-                            child: SizedBox(
-                              width: 60,
-                              height: 10,
-                              child: Text(
-                                  'Trial Point',
-                                style: TextStyle(fontSize: 7,
+                          // Circle
+                          Positioned(
+                            left: 4,
+                            top: 2.5,
+                            child: Container(
+                              width: 32,
+                              height: 32,
+                              decoration: const BoxDecoration(
                                 color: Color(0xFF003133),
+                                shape: BoxShape.circle,
+                              ),
+                              child: const Center(
+                                child: Text(
+                                  '1',
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
                               ),
                             ),
                           ),
+
+                          // Trial Point
                           const Positioned(
-                            left: 55,
-                            top: 76,
+                            left: 42, // Circle ke right side se gap
+                            top: 6,   // Rectangle ke top se halka नीचे
                             child: SizedBox(
-                              width: 46,
-                              height: 14,
+                              width: 60,
                               child: Text(
-                                'Available',
-                                overflow: TextOverflow.ellipsis,
+                                'Trial Point',
                                 style: TextStyle(
-                                  fontFamily: 'Roboto',
-                                  fontWeight: FontWeight.w400,
-                                  fontSize: 12,
-                                  height: 1.0, // Line height 100%
+                                  fontSize: 7,
                                   color: Color(0xFF003133),
                                 ),
                               ),
                             ),
                           ),
 
-
+                          // Available
+                          const Positioned(
+                            left: 42,
+                            top: 18, // Trial Point ke नीचे
+                            child: SizedBox(
+                              width: 60,
+                              child: Text(
+                                'Available',
+                                style: TextStyle(
+                                  fontFamily: 'Roboto',
+                                  fontWeight: FontWeight.w400,
+                                  fontSize: 12,
+                                  height: 1.0, // Line height 100%
+                                  color: Color(0xFF81CC2E)
+                                  ,
+                                ),
+                              ),
+                            ),
+                          ),
                         ],
-                      )
+                      ),
                     ),
                   )
                 ],
               ),
             ),
           ),
-          // 👇 You can place other widgets here below the curved container
+
         ],
       ),
     );
