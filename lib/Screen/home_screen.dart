@@ -21,6 +21,7 @@ class HomeScreen extends StatelessWidget {
               child: Stack(
                 children: [
                   // Rectangle with circle & text
+
                   Positioned(
                     top: 20,
                     left: 16,
@@ -58,8 +59,8 @@ class HomeScreen extends StatelessWidget {
 
                           // Trial Point
                           const Positioned(
-                            left: 42, // Circle ke right side se gap
-                            top: 6,   // Rectangle ke top se halka नीचे
+                            left: 42,
+                            top: 6,
                             child: SizedBox(
                               width: 60,
                               child: Text(
@@ -75,7 +76,7 @@ class HomeScreen extends StatelessWidget {
                           // Available
                           const Positioned(
                             left: 42,
-                            top: 18, // Trial Point ke नीचे
+                            top: 18, 
                             child: SizedBox(
                               width: 60,
                               child: Text(
@@ -94,6 +95,15 @@ class HomeScreen extends StatelessWidget {
                         ],
                       ),
                     ),
+                  ),
+                  //Right - Cart, Wishlist, search bar
+                  Positioned(
+                      child: Row(
+                        children: [
+                          IconButton(onPressed: (){}, 
+                              icon:const Icon(Icons.shopping_cart,color: Colors.white,) )
+                        ],
+                      )
                   )
                 ],
               ),
