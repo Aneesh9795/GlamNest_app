@@ -21,9 +21,8 @@ class HomeScreen extends StatelessWidget {
               child: Stack(
                 children: [
                   // Rectangle with circle & text
-
                   Positioned(
-                    top: 20,
+                    top: 5,
                     left: 16,
                     child: Container(
                       width: 110,
@@ -76,7 +75,7 @@ class HomeScreen extends StatelessWidget {
                           // Available
                           const Positioned(
                             left: 42,
-                            top: 18, 
+                            top: 18,
                             child: SizedBox(
                               width: 60,
                               child: Text(
@@ -86,8 +85,7 @@ class HomeScreen extends StatelessWidget {
                                   fontWeight: FontWeight.w400,
                                   fontSize: 12,
                                   height: 1.0, // Line height 100%
-                                  color: Color(0xFF81CC2E)
-                                  ,
+                                  color: Color(0xFF81CC2E),
                                 ),
                               ),
                             ),
@@ -96,20 +94,67 @@ class HomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                  //Right - Cart, Wishlist, search bar
+                  //Right side
                   Positioned(
+                    top: 5,
+                      right: 10,
                       child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          IconButton(onPressed: (){}, 
-                              icon:const Icon(Icons.shopping_cart,color: Colors.white,) )
+                          IconButton(
+                              onPressed: () {},
+                              icon: const Icon(Icons.search, color: Colors.white,size: 30,)
+                          ),
+                          const SizedBox(width: 5),
+                          IconButton(
+                            icon: const Icon(Icons.favorite_border,color: Colors.white,),
+                            onPressed: (){},
+                          ),
+                          const SizedBox(width: 5),
+                          IconButton(
+                            onPressed: (){},
+                            icon: const Icon(Icons.shopping_cart,color: Colors.white,),
+                          ),
                         ],
-                      )
-                  )
+                  ),
+                  ),
+                  Positioned(
+                    top: 50,
+                    left: 0,
+                    right: 0,
+                    // adjust height so it is below rectangle & icons but inside curve
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: const [
+                        Text(
+                          'Current Location',
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.w500,
+                            color: Color(0xFFEBFFD5),
+                          ),
+                        ),
+                        SizedBox(height: 4),
+                        Text(
+                          'Delhi Kakrola Dwarka 110078',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w400,
+                            color: Color(0xFF81CC2E), // same green color as before
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+
+
                 ],
+
               ),
+
             ),
           ),
-
+          
         ],
       ),
     );
